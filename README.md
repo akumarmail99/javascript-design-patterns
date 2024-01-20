@@ -219,3 +219,25 @@ const EmployeeBuilder = function (firstName, middleName, lastName) {
 const empBuildrObj = new EmployeeBuilder('Avinash', 'Kumar', 'Kushwaha').setAge(32).setWeight(65).setGender('M').build();
 empBuildrObj.employeeDetails();
 ```
+
+### Prototype Design Pattern
+
+- The prototype method allows you to reuse the properties and methods of the prototype object, and also add new ones as needed. 
+- The prototype method is useful for performance optimization, as it avoids creating new functions for each object instance.
+- It also supports prototypal inheritance, which is a different way of implementing object-oriented programming in JavaScript.
+
+```
+function Employee(name) {
+    this.name = name;
+}
+
+Employee.prototype.getName = function () {
+    console.log(this.name);
+}
+
+const emp1 = new Employee('Avinash');
+emp1.getName();
+
+const emp2 = new Employee('Vinay Maurya');
+emp2.getName();
+```
