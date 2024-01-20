@@ -224,7 +224,7 @@ empBuildrObj.employeeDetails();
 - Abstract Factory Pattern is to abstract the process of object creation by defining a family of related factory methods, each responsible for creating a different type of object. These factory methods are organized within an abstract factory interface or class, and the client code uses this interface to create objects.
 
 - UML Diagram Of Abstract Factory Pattern
-![alt text](./creational-design-patterns/abstract-factory-method.png)
+![alt text](./creational-design-patterns/abstract-factory-method.svg)
 
 - Example of Abstract Factory Pattern
 ```
