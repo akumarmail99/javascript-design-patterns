@@ -6,7 +6,7 @@
 - The Singleton pattern limits the number of instances of a particular object to just one.
 - Singleton is useful in a situations where system-side actions needs to be coordinated from a central place.
 
-Example of Singleton Design Pattern
+Example of Singleton Design Pattern in ES5
 ```
 const Singleton = (function(){
     let instance;
@@ -25,7 +25,38 @@ const Singleton = (function(){
     }
 })();
 ``` 
-- For more info visit: https://www.dofactory.com/javascript/design-patterns/singleton
+
+Example of Singleton Design Pattern in ES6
+
+```
+class SingletonES6 {
+    constructor() {
+        if (SingletonES6.instance) {
+            return SingletonES6.instance;
+        }
+        SingletonES6.instance = this;
+    }
+
+    setName(name) {
+        this.name = name;
+    }
+
+    getName() {
+        return this.name;
+    }
+}
+
+const obj1 = new SingletonES6();
+obj1.setName('Avinash');
+console.log(obj1.getName());
+
+
+const obj2 = new SingletonES6();
+obj2.setName('Avinash Kumar');
+console.log(obj2.getName());
+
+console.log(obj1.getName());
+```
 
 ### Factory Method Pattern
 - It allows you to create similar type of defferent objects.
