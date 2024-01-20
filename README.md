@@ -219,6 +219,70 @@ const EmployeeBuilder = function (firstName, middleName, lastName) {
 const empBuildrObj = new EmployeeBuilder('Avinash', 'Kumar', 'Kushwaha').setAge(32).setWeight(65).setGender('M').build();
 empBuildrObj.employeeDetails();
 ```
+### Abstract Factory Pattern
+
+- Abstract Factory Pattern is to abstract the process of object creation by defining a family of related factory methods, each responsible for creating a different type of object. These factory methods are organized within an abstract factory interface or class, and the client code uses this interface to create objects.
+
+- UML Diagram Of Abstract Factory Pattern
+![alt text](./creational-design-patterns/abstract-factory-method.png)
+
+- Example of Abstract Factory Pattern
+```
+
+class Button {
+    constructor(name, text) {
+        this.name = name;
+        this.text = text;
+    }
+}
+
+class LightThemeButton extends Button {
+    lightThemeColor = 'lightGray';
+    constructor(name, text) {
+        super(name, text);
+    }
+}
+
+class DarkThemeButton extends Button {
+    darkThemeButton = 'darkColor';
+    constructor(name, text) {
+        super(name, text);
+    }
+}
+
+//-----------------------------------
+
+class UIFactory {
+    createButton(){}
+}
+
+class LightThemeFactory extends UIFactory {
+    constructor(){
+        super();
+    }
+    createButton(name, text) {
+        return new LightThemeButton(name, text);
+    }
+}
+
+class DarkThemeFactory extends UIFactory {
+    constructor(){
+        super();
+    }
+
+    createButton(name, text) {
+        return new DarkThemeButton(name, text);
+    }
+}
+
+// -------------------------------------------
+
+const lightButton = new LightThemeFactory().createButton('LightButton', 'LightGrayText');
+const darkButton = new DarkThemeFactory().createButton('DarkButton', 'DarkText');
+
+console.log(lightButton);
+console.log(darkButton);
+```
 
 ### Prototype Design Pattern
 

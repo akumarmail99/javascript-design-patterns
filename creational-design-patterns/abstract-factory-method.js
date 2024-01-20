@@ -1,44 +1,54 @@
-const Factory = function() {
-    this.createEmloyee = function(type) {
-        let employee;
 
-        if (type == 'full-time') {
-            employee = new FullTime();
-        } else if (type == 'part-time') {
-            employee = new PartTime();
-        } else if (type == 'temporary') {
-            employee = new Temporary();
-        } else if (type == 'contractor') {
-            employee = new Contractor();
-        }
+class Button {
+    constructor(name, text) {
+        this.name = name;
+        this.text = text;
+    }
+}
 
-        employee.type = type;
+class LightThemeButton extends Button {
+    lightThemeColor = 'lightGray';
+    constructor(name, text) {
+        super(name, text);
+    }
+}
 
-        employee.getPayDetail = function() {
-            console.log(`${type} employee got ${employee.hourly}/hourly`);
-        }
+class DarkThemeButton extends Button {
+    darkThemeButton = 'darkColor';
+    constructor(name, text) {
+        super(name, text);
+    }
+}
 
-        return employee;
+//-----------------------------------
+
+class UIFactory {
+    createButton(){}
+}
+
+class LightThemeFactory extends UIFactory {
+    constructor(){
+        super();
+    }
+    createButton(name, text) {
+        return new LightThemeButton(name, text);
+    }
+}
+
+class DarkThemeFactory extends UIFactory {
+    constructor(){
+        super();
     }
 
-}
-function FullTime() {
-    this.hourly = '$50'
-}
-
-function PartTime() {
-    this.hourly = '$40';
+    createButton(name, text) {
+        return new DarkThemeButton(name, text);
+    }
 }
 
-function Temporary() {
-    this.hourly = '$30';
-}
+// -------------------------------------------
 
-function Contractor() {
-    this.hourly = '$20';
-}
+const lightButton = new LightThemeFactory().createButton('LightButton', 'LightGrayText');
+const darkButton = new DarkThemeFactory().createButton('DarkButton', 'DarkText');
 
-
-const factoryIns1 = new Factory().createEmloyee('part-time');
-
-factoryIns1.getPayDetail();
+console.log(lightButton);
+console.log(darkButton);
